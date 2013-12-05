@@ -30,9 +30,16 @@ To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides
   [Florian Hanke](https://github.com/floere)
   [#1643][https://github.com/CocoaPods/CocoaPods/pull/1643]
 
-* pod lib lint now accepts multiple podspecs in the same folder.
-[kra Larivain/OpenTable](https://github.com/opentable)
-[#1635](https://github.com/CocoaPods/CocoaPods/pull/1635)
+* The command`pod lib lint` now accepts multiple podspecs in the same folder.  
+  [kra Larivain/OpenTable](https://github.com/opentable)
+  [#1635](https://github.com/CocoaPods/CocoaPods/pull/1635)
+
+###### Refactor
+
+* The command `podfile_info` is now a plugin offered by CocoaPods.
+  It is included by default in the project.  
+  [Joshua Kalpin](https://github.com/Kapin)
+  [#1589](https://github.com/CocoaPods/CocoaPods/issues/1589)
 
 ###### Bug Fixes
 
