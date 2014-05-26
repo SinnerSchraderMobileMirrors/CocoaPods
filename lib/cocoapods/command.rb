@@ -75,7 +75,9 @@ module Pod
     #
     def initialize(argv)
       super
-      @project_directory = Pathname.new(argv.option('project-directory', Pathname.pwd)).expand_path
+      if project_directory = argv.option('project-directory')
+        @project_directory = Pathname.new(project_directory).expand_path
+      end
       config.installation_root = @project_directory
       config.silent = argv.flag?('silent', config.silent)
       config.verbose = self.verbose? unless verbose.nil?
@@ -85,7 +87,7 @@ module Pod
     end
 
     def validate!
-      unless @project_directory.directory?
+      if @project_directory && !@project_directory.directory?
         raise Informative,
           "`#{@project_directory}` is not a valid directory."
       end
