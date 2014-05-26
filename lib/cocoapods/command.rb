@@ -31,6 +31,7 @@ module Pod
     def self.options
       [
         ['--silent',   'Show nothing'],
+        ["--project-directory=/path/to/root/with/Podfile", 'The path to the root of the project directory'],
       ].concat(super)
     end
 
@@ -74,10 +75,19 @@ module Pod
     #
     def initialize(argv)
       super
+      @project_directory = Pathname.new(argv.option('project-directory', Pathname.pwd)).expand_path
+      config.installation_root = @project_directory
       config.silent = argv.flag?('silent', config.silent)
       config.verbose = self.verbose? unless verbose.nil?
       unless self.ansi_output?
         String.send(:define_method, :colorize) { |string, _| string }
+      end
+    end
+
+    def validate!
+      unless @project_directory.directory?
+        raise Informative,
+          "`#{@project_directory}` is not a valid directory."
       end
     end
 
@@ -95,7 +105,7 @@ module Pod
     #
     def verify_podfile_exists!
       unless config.podfile
-        raise Informative, "No `Podfile' found in the current working directory."
+        raise Informative, "No `Podfile' found in the project directory."
       end
     end
 
@@ -107,7 +117,7 @@ module Pod
     #
     def verify_lockfile_exists!
       unless config.lockfile
-        raise Informative, "No `Podfile.lock' found in the current working directory, run `pod install'."
+        raise Informative, "No `Podfile.lock' found in the project directory, run `pod install'."
       end
     end
   end
