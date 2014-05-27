@@ -87,6 +87,7 @@ module Pod
     end
 
     def validate!
+      super
       if @project_directory && !@project_directory.directory?
         raise Informative,
           "`#{@project_directory}` is not a valid directory."
