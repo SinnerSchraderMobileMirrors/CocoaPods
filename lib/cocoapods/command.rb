@@ -31,7 +31,7 @@ module Pod
     def self.options
       [
         ['--silent',   'Show nothing'],
-        ["--project-directory=/path/to/root/with/Podfile", 'The path to the root of the project directory'],
+        ['--project-directory=/path/to/project/directory/', 'The path to the root of the project directory'],
       ].concat(super)
     end
 
