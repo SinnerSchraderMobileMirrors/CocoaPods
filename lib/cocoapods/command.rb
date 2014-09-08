@@ -28,10 +28,11 @@ module Pod
     self.description = 'CocoaPods, the Objective-C library package manager.'
     self.plugin_prefix = 'cocoapods'
 
+    [Install, Update, Outdated, IPC::Podfile, IPC::Repl].each { |c| c.send(:include, ProjectDirectory) }
+
     def self.options
       [
         ['--silent',   'Show nothing'],
-        ['--project-directory=/path/to/project/directory/', 'The path to the root of the project directory'],
       ].concat(super)
     end
 
@@ -75,22 +76,10 @@ module Pod
     #
     def initialize(argv)
       super
-      if project_directory = argv.option('project-directory')
-        @project_directory = Pathname.new(project_directory).expand_path
-      end
-      config.installation_root = @project_directory
       config.silent = argv.flag?('silent', config.silent)
       config.verbose = self.verbose? unless verbose.nil?
       unless self.ansi_output?
         String.send(:define_method, :colorize) { |string, _| string }
-      end
-    end
-
-    def validate!
-      super
-      if @project_directory && !@project_directory.directory?
-        raise Informative,
-              "`#{@project_directory}` is not a valid directory."
       end
     end
 
