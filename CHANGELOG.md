@@ -10,6 +10,10 @@ To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides
   [Paul Williamson](squarefrog)
   [#2296](https://github.com/CocoaPods/CocoaPods/issues/2296)
 
+* Fixed static analysis in Xcode 6
+  [Samuel Giddins](segiddins)
+  [#2402](https://github.com/CocoaPods/CocoaPods/issues/2402)
+
 ## 0.33.1
 
 ##### Bug Fixes
@@ -457,7 +461,7 @@ To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides
   [Joshua Kalpin](https://github.com/Kapin)
   [Core#39](https://github.com/CocoaPods/Core/pull/39)
   [#1610](https://github.com/CocoaPods/CocoaPods/issues/1610)
-  
+
 * Having the silent flag enabled in the config will no longer cause issues
   with `pod search`. In addition, the flag `--silent` is no longer supported
   for the command.  
@@ -481,9 +485,9 @@ To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides
   [Carson McDonald](https://github.com/carsonmcdonald)
   [#1628](https://github.com/CocoaPods/CocoaPods/issues/1628)
 
-* Fixed all issues caused by `/tmp` being a symlink to `/private/tmp`. 
-  This affected mostly `pod lib lint`, causing it to fail when the 
-  Pod used `prefix_header_*` or when the pod headers imported headers 
+* Fixed all issues caused by `/tmp` being a symlink to `/private/tmp`.
+  This affected mostly `pod lib lint`, causing it to fail when the
+  Pod used `prefix_header_*` or when the pod headers imported headers
   using the namespaced syntax (e.g. `#import <MyPod/Header.h>`).  
   [kra Larivain/OpenTable](https://github.com/opentable)
   [#1514](https://github.com/CocoaPods/CocoaPods/pull/1514)
@@ -613,7 +617,7 @@ To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides
   [Noah McCann](https://github.com/nmccann)
   [#29](https://github.com/CocoaPods/Core/pull/29)
 
-* The developer dir relative to the SDK is not added anymore if testing 
+* The developer dir relative to the SDK is not added anymore if testing
   frameworks are detected in OS X targets, as it doesn't exists, avoiding the
   presentation of the relative warning in Xcode.  
   [Fabio Pelosin](https://github.com/irrationalfab)
@@ -773,7 +777,7 @@ To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides
 
 * Added `pod init` command which generates a Podfile according to the
   targets of the project stored in the working directory and to the templates
-  stored in the `~/.cocoapods/templates` folder. Two templates are supported: 
+  stored in the `~/.cocoapods/templates` folder. Two templates are supported:
     - the `Podfile.default` template for regular targets.
     - and the `Podfile.test` template for test targets.
   [Ian Ynda-Hummel](https://github.com/ianyh)
@@ -2434,4 +2438,3 @@ allowing you to automate Xcode related tasks.
 [irrationalfab]: https://github.com/irrationalfab
 [kylef]: (https://github.com/kylef)
 [neonichu]: (https://github.com/neonichu)
-
