@@ -2,6 +2,15 @@
 
 To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides/installing_cocoapods.html).
 
+## Master
+
+##### Bug Fixes
+
+* Fix crash when the URL of a private GitHub repo is passed to `pod spec
+  create` as an argument.  
+  [Fabio Pelosin](https://github.com/fabiopelosin)
+  [#1543](https://github.com/CocoaPods/CocoaPods/issues/1543)
+
 
 ## 0.34.0.rc2
 
