@@ -32,6 +32,11 @@ To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides
   [Kurry Tran](https://github.com/kurry)
   [#2683](https://github.com/CocoaPods/CocoaPods/issues/2683)
 
+* Fixes an issue when using pods in static library targets.  
+  [Kyle Fuller](https://github.com/kylef)
+  [#2666](https://github.com/CocoaPods/CocoaPods/issues/2666)
+
+
 ## 0.34.2
 
 ##### Enhancements

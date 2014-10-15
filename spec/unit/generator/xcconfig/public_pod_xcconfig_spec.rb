@@ -76,6 +76,10 @@ module Pod
           xcconfig.to_hash['LIBRARY_SEARCH_PATHS'].should.include?('"$(PODS_ROOT)/banana-lib"')
         end
 
+        it 'should configure OTHER_LIBTOOLFLAGS flags to include OTHER_LDFLAGS' do
+          @xcconfig.to_hash['OTHER_LIBTOOLFLAGS'].should == '$(OTHER_LDFLAGS)'
+        end
+
         #-----------------------------------------------------------------------#
 
         before do
