@@ -40,7 +40,6 @@ module Pod
         #
         def generate
           @xcconfig = Xcodeproj::Config.new
-          @xcconfig.merge!('OTHER_LIBTOOLFLAGS' => '$(OTHER_LDFLAGS)')
           target.file_accessors.each do |file_accessor|
             XCConfigHelper.add_spec_build_settings_to_xcconfig(file_accessor.spec_consumer, @xcconfig)
             file_accessor.vendored_frameworks.each do |vendored_framework|
