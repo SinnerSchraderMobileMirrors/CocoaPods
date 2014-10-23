@@ -32,11 +32,6 @@ group :development do
   if RUBY_VERSION >= '1.9.3'
     gem 'rubocop'
   end
-
-  if RUBY_PLATFORM.include?('darwin')
-    # Make Xcodeproj faster
-    gem 'libxml-ruby'
-  end
 end
 
 group :debugging do
