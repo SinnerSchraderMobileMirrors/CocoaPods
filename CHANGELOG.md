@@ -4,6 +4,16 @@ To install or update CocoaPods see this [guide](http://docs.cocoapods.org/guides
 
 To install release candidates run `[sudo] gem install cocoapods --pre`
 
+## Master
+
+##### Bug Fixes
+
+* [Cache] Fixes a bug that caused that a pod, which was cached once is not updated
+  correctly when needed e.g. for `pod spec lint`.  
+  [Marius Rackwitz](https://github.com/mrackwitz)
+  [#3498](https://github.com/CocoaPods/CocoaPods/issues/3498)
+
+
 ## 0.37.0
 
 For more details, see 📝 [CocoaPods 0.37](http://blog.cocoapods.org/CocoaPods-0.37/) on our blog.
