@@ -6,6 +6,13 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
 
 ## Master
 
+##### Breaking
+
+* Pass the `Installer` instead of the `Hooks::InstallerRepresentation` to the
+  `pre_install` and `post_install` hooks defined in the Podfile.  
+  [Marius Rackwitz](https://github.com/mrackwitz)
+  [#3648](https://github.com/CocoaPods/CocoaPods/issues/3648)
+
 ##### Enhancements
 
 * New commands `pod cache list` and `pod cache clean` allows you to see the
