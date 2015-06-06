@@ -94,6 +94,11 @@ describe_cli 'pod' do
   Process.wait(spawn('which hg', :err => :out, :out => '/dev/null'))
   has_mercurial = $?.success?
 
+  if (developer_bin = `xcode-select -p 2>/dev/null`.strip) && $?.success?
+    developer_bin = Pathname(developer_bin) + 'usr/bin'
+    ENV['PATH'] = "#{developer_bin}#{File::PATH_SEPARATOR}#{ENV['PATH']}"
+  end
+
   subject do |s|
     s.executable = "ruby #{ROOT + 'bin/pod'}"
     s.environment_vars = {
