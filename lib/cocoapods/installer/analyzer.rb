@@ -251,6 +251,9 @@ module Pod
           target.user_target_uuids = target_inspection.project_target_uuids
           target.user_build_configurations = target_inspection.build_configurations
           target.archs = target_inspection.archs
+
+          UI.message('Using `ARCHS` setting to build architectures of ' \
+            "target `#{target}`: (`#{target.archs.join('`, `')}`)")
         else
           target.client_root = config.installation_root
           target.user_target_uuids = []
@@ -369,7 +372,7 @@ module Pod
         if config.integrate_targets?
           target_inspections = result.target_inspections.select { |t, _| target_definitions.include?(t) }.values
           pod_target.user_build_configurations = target_inspections.map(&:build_configurations).reduce({}, &:merge)
-          pod_target.archs = target_inspections.map(&:archs).uniq.sort
+          pod_target.archs = target_inspections.flat_map(&:archs).compact.uniq.sort
         else
           pod_target.user_build_configurations = {}
           if target_definitions.first.platform.name == :osx
