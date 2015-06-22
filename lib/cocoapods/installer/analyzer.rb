@@ -654,7 +654,8 @@ module Pod
         inspection_result = {}
         UI.section 'Inspecting targets to integrate' do
           podfile.target_definition_list.each do |target_definition|
-            inspection_result[target_definition] = TargetInspector.new(target_definition).inspect!
+            inspector = TargetInspector.new(target_definition, config.installation_root)
+            inspection_result[target_definition] = inspector.inspect!
           end
         end
         inspection_result
