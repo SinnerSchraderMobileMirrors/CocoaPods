@@ -117,6 +117,11 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
   not found will have a more helpful error message.  
   [Samuel Giddins](https://github.com/segiddins)
 
+* Fixes a bug where some Pods containing Swift frameworks were not being written
+  to the expected directory.  
+  [Tim Rosenblatt](https://github.com/timrosenblatt)
+  [#3675](https://github.com/CocoaPods/CocoaPods/pull/3675)
+
 
 ## 0.37.2
 
