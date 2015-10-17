@@ -54,6 +54,9 @@ module Pod
     #
     attr_accessor :client_root
 
+    # @return [Xcodeproj::Project] the user project that this target will
+    #         integrate as identified by the analyzer.
+    #
     attr_accessor :user_project
 
     # @return [Pathname] the path of the user project that this target will
