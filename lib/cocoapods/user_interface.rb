@@ -330,7 +330,7 @@ module Pod
           else
             STDOUT.puts(message) unless config.silent?
           end
-        rescue
+        rescue Errno::EPIPE
           exit 1
         end
       end
@@ -348,7 +348,7 @@ module Pod
           else
             STDOUT.print(message) unless config.silent?
           end
-        rescue
+        rescue Errno::EPIPE
           exit 1
         end
       end
