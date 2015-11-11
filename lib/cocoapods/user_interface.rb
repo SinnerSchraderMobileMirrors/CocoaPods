@@ -19,7 +19,7 @@ module Pod
       attr_accessor :indentation_level
       attr_accessor :title_level
       attr_accessor :warnings
-      attr_accessor :io_type
+      attr_accessor :io
 
       # @return [Bool] Whether the wrapping of the strings to the width of the
       #         terminal should be disabled.
@@ -325,13 +325,9 @@ module Pod
       def puts(message = '')
         return if config.silent?
         begin
-          if io_type
-            io_type.puts(message)
-          else
-            STDOUT.puts(message) unless config.silent?
-          end
+          (io || STDOUT).puts(message)
         rescue Errno::EPIPE
-          exit 1
+          exit 0
         end
       end
 
@@ -343,20 +339,16 @@ module Pod
       def print(message)
         return if config.silent?
         begin
-          if io_type
-            io_type.print(message)
-          else
-            STDOUT.print(message) unless config.silent?
-          end
+          (io || STDOUT).print(message)
         rescue Errno::EPIPE
-          exit 1
+          exit 0
         end
       end
 
       # gets input from $stdin
       #
       def gets
-        $stdin.gets
+        (io || $stdin).gets
       end
 
       # Stores important warning to the user optionally followed by actions

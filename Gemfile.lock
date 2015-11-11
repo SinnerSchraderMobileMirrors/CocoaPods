@@ -34,7 +34,7 @@ GIT
 
 GIT
   remote: https://github.com/CocoaPods/cocoapods-downloader.git
-  revision: b35c7514683d8a5e3118d5333c15f941d40004fd
+  revision: 6d29c876221f5db4fedd7cd2977f496f219844bb
   branch: master
   specs:
     cocoapods-downloader (0.9.3)
@@ -63,7 +63,7 @@ GIT
 
 GIT
   remote: https://github.com/CocoaPods/cocoapods-trunk.git
-  revision: 82542cb68816691a35053dfd4b9333ede8158a0c
+  revision: 290c21fc1c6838b410561039b0d7bb24fe5477a2
   branch: master
   specs:
     cocoapods-trunk (0.6.4)
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/CocoaPods/cocoapods-try.git
-  revision: 44d0e4de7bce3054d60b70c2b6ce961956a74493
+  revision: 68ec4388b713fa6f508505bae04f4f0b4e57f84f
   branch: master
   specs:
     cocoapods-try (0.5.1)
