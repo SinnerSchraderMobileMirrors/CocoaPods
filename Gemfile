@@ -38,7 +38,7 @@ group :development do
 
   # Integration tests
   gem 'diffy'
-  gem 'clintegracon'
+  gem 'clintegracon', :git => 'https://github.com/segiddins/CLIntegracon.git', :branch => 'seg-restore-transform'
 
   # Code Quality
   gem 'inch_by_inch'

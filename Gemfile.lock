@@ -85,6 +85,15 @@ GIT
     cocoapods-try (0.5.1)
 
 GIT
+  remote: https://github.com/segiddins/CLIntegracon.git
+  revision: a17e61e8a946e40632b2d48681bd2c7b9f086f63
+  branch: seg-restore-transform
+  specs:
+    clintegracon (0.7.0)
+      colored (~> 1.2)
+      diffy
+
+GIT
   remote: https://github.com/segiddins/json.git
   revision: d4011cabfaa80e9b0da81947b5e9b38dd47359db
   branch: seg-1.7.7-ruby-2.2
@@ -126,9 +135,6 @@ GEM
       parser (~> 2.2)
     awesome_print (1.6.1)
     bacon (1.2.0)
-    clintegracon (0.8.0)
-      colored (~> 1.2)
-      diffy
     cocoapods-dependencies (0.5.1)
       ruby-graphviz (~> 1.2)
     coderay (1.1.0)
@@ -212,7 +218,7 @@ DEPENDENCIES
   bacon
   bundler (~> 1.3)
   claide!
-  clintegracon
+  clintegracon!
   cocoapods!
   cocoapods-core!
   cocoapods-deintegrate!
