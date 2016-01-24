@@ -29,6 +29,10 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
   resource bundle targets.  
   [Andy Rifken](https://github.com/arifken)
 
+* Share user schemes of `Pods.xcodeproj` after generating deterministic UUIDS.  
+  [Samuel Giddins](https://github.com/segiddins)
+  [#4758](https://github.com/CocoaPods/CocoaPods/issues/4758)
+
 
 ## 1.0.0.beta.2 (2016-01-05)
 
