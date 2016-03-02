@@ -7,8 +7,8 @@ GIT
 
 GIT
   remote: https://github.com/CocoaPods/Core.git
-  revision: cc77e5194b892786a698f67f272f13cefeca5f17
-  branch: master
+  revision: 19cab0ea8d1bc212122fedd9ec2bc5f9d3316756
+  branch: seg-allow-inheriting-root-only
   specs:
     cocoapods-core (1.0.0.beta.4)
       activesupport (>= 4.0.2)
