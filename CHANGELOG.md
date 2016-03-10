@@ -14,6 +14,11 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
   [#5005](https://github.com/CocoaPods/CocoaPods/issues/5005)
   [#4989](https://github.com/CocoaPods/CocoaPods/issues/4989)
 
+* The validator will check that all `public_header_files` and
+  `private_header_files` are also present in `source_files`.  
+  [Samuel Giddins](https://github.com/segiddins)
+  [#4936](https://github.com/CocoaPods/CocoaPods/issues/4936)
+
 ##### Bug Fixes
 
 * None.  
