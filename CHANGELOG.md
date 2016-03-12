@@ -40,6 +40,10 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
   embed frameworks build phase's script, so that UI test targets can be run.  
   [Marius Rackwitz](https://github.com/mrackwitz)
   [#5022](https://github.com/CocoaPods/CocoaPods/issues/5022)
+  
+* Fixes build paths for resources bundles.  
+  [Marius Rackwitz](https://github.com/mrackwitz)
+  [#5028](https://github.com/CocoaPods/CocoaPods/pull/5028)
 
 
 ## 1.0.0.beta.5 (2016-03-08)
