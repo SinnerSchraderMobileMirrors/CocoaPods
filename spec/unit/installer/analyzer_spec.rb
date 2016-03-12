@@ -66,7 +66,6 @@ module Pod
       #--------------------------------------#
 
       it 'does not update unused sources' do
-        config.skip_repo_update = false
         @analyzer.stubs(:sources).returns(SourcesManager.master)
         SourcesManager.expects(:update).once.with('master')
         @analyzer.update_repositories
@@ -96,7 +95,6 @@ module Pod
           project 'SampleProject/SampleProject'
           pod 'BananaLib', '1.0'
         end
-        config.skip_repo_update = false
         config.verbose = true
 
         source = Source.new(non_git_repo)
