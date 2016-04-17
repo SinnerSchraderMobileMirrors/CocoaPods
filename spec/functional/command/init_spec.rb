@@ -9,7 +9,7 @@ module Pod
       lambda { run_command('init', 'foo.xcodeproj') }.should.raise CLAide::Help
     end
 
-    it 'complains if wrong parameters' do
+    fit 'complains if wrong parameters' do
       lambda { run_command('too', 'many') }.should.raise CLAide::Help
     end
 
