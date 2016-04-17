@@ -66,7 +66,7 @@ module Pod
         all_app_targets = project.native_targets.reject { |t| t.name =~ /tests?/i }
         all_tests_targets = project.native_targets.select { |t| t.name =~ /tests?/i }
 
-        # Create an array of [app, (optional)test] target pairs
+        # Create an array of [app, (optional)*test] target pairs
         app_test_pairs = all_app_targets.map do |target|
           test = all_tests_targets.select { |t| t.name.start_with? target.name }
           [target, *test].compact
@@ -88,12 +88,12 @@ module Pod
       def target_module(targets)
         app = targets.first
         target_module = "\ntarget '#{app.name.gsub(/'/, "\\\\\'")}' do\n"
-        target_module << template_contents(config.default_podfile_path, "  ", "Pods for #{app.name}\n")
+        target_module << template_contents(config.default_podfile_path, '  ', "Pods for #{app.name}\n")
 
         targets[1..-1].each do |test|
           target_module << "\n  target '#{test.name.gsub(/'/, "\\\\\'")}' do\n"
           target_module << "    inherit! :search_paths\n"
-          target_module << template_contents(config.default_test_podfile_path, "    ", "Pods for testing")
+          target_module << template_contents(config.default_test_podfile_path, '    ', 'Pods for testing')
           target_module << "\n  end\n"
         end
 
@@ -110,7 +110,7 @@ module Pod
         if path.exist?
           path.read.chomp.lines.map { |line| "#{prefix}#{line}" }.join("\n")
         else
-           "#{prefix}# #{fallback}"
+          "#{prefix}# #{fallback}"
         end
       end
     end
