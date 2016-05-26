@@ -24,8 +24,8 @@ GIT
 
 GIT
   remote: https://github.com/CocoaPods/Xcodeproj.git
-  revision: 480e2f99e5e9315b8032854a9530aa500761e138
-  branch: master
+  revision: 5d7033c422d7d52c7bafca450097351938e9b607
+  branch: seg-native-target-type-helpers
   specs:
     xcodeproj (1.0.0)
       activesupport (>= 3)
