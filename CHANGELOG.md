@@ -8,7 +8,8 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
 
 ##### Enhancements
 
-* None.  
+* Add support for running CocoaPods on Linux.  
+  [Samuel Giddins](https://github.com/segiddins)
 
 ##### Bug Fixes
 
@@ -191,7 +192,7 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
 
 ##### Bug Fixes
 
-* Hash scope suffixes if they are over 50 characters to prevent file paths from being too long. 
+* Hash scope suffixes if they are over 50 characters to prevent file paths from being too long.  
   [Danielle Tomlinson](https://github.com/dantoml)
   [#5491](https://github.com/CocoaPods/CocoaPods/issues/5491)
 
