@@ -30,6 +30,10 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
 * Remove the `const_missing` hack for `Pod::SourcesManager`.  
   [Samuel Giddins](https://github.com/segiddins)
 
+* Raise an exception when using a git version prior to 1.8.5.  
+  [Danielle Tomlinson](https://github.com/dantoml)
+  [#6078](https://github.com/CocoaPods/CocoaPods/issues/6078)
+
 
 ## 1.2.0.beta.1 (2016-10-28)
 
