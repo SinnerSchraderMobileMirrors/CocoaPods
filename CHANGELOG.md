@@ -109,7 +109,9 @@ To install release candidates run `[sudo] gem install cocoapods --pre`
 
 ##### Enhancements
 
-* None.  
+* Use fetch and reset rather than a pull when updating specs repos.  
+  [Danielle Tomlinson](https://github.com/dantoml)
+  [#6206](https://github.com/CocoaPods/CocoaPods/pull/6206)
 
 ##### Bug Fixes
 
