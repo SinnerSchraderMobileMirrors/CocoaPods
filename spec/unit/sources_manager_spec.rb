@@ -97,7 +97,7 @@ module Pod
             with(with).
             in_sequence(repo_update)
         end
-        expectation.call(%W(-C #{test_repo_path} fetch))
+        expectation.call(%W(-C #{test_repo_path} fetch origin))
         expectation.call(%W(-C #{test_repo_path} reset --hard origin/master))
         @sources_manager.update(test_repo_path.basename.to_s, true)
       end
@@ -114,7 +114,7 @@ module Pod
             in_sequence(repo_update)
         end
         expectation.call(%W(-C #{test_repo_path} fetch --unshallow))
-        expectation.call(%W(-C #{test_repo_path} fetch))
+        expectation.call(%W(-C #{test_repo_path} fetch origin))
         expectation.call(%W(-C #{test_repo_path} reset --hard origin/master))
 
         @sources_manager.update(test_repo_path.basename.to_s, true)
@@ -130,7 +130,7 @@ module Pod
         Source.any_instance.stubs(:git).with do |options|
           options.join(' ') == %W(-C #{test_repo_path} diff --name-only aabbccd..HEAD).join(' ')
         end.returns('')
-        MasterSource.any_instance.expects(:git!).with(%W(-C #{test_repo_path} fetch)).raises(<<-EOS)
+        MasterSource.any_instance.expects(:git!).with(%W(-C #{test_repo_path} fetch origin)).raises(<<-EOS)
 fatal: '/dev/null' does not appear to be a git repository
 fatal: Could not read from remote repository.
 

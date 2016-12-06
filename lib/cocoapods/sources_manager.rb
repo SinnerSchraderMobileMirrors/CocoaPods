@@ -104,7 +104,7 @@ module Pod
 
     def update_git_repo(show_output = false)
       Config.instance.with_changes(:verbose => show_output) do
-        git!(%W(-C #{repo} fetch))
+        git!(%W(-C #{repo} fetch origin))
         git!(%W(-C #{repo} reset --hard origin/master))
       end
     rescue
