@@ -107,7 +107,12 @@ module Pod
               banana_headers = [headers_root + 'BananaLib/Banana.h', headers_root + 'BananaLib/MoreBanana.h']
               banana_headers.each { |banana_header| banana_header.should.not.exist }
               monkey_header = headers_root + 'monkey/monkey/monkey.h'
-              monkey_header.should.not.exist
+              monkey_header.should.exist # since it lives outside of the vendored framework
+
+              config.sandbox.public_headers.search_paths(pod_target_one.platform).should == %w[
+                ${PODS_ROOT}/Headers/Public/monkey
+                ${PODS_ROOT}/Headers/Public/monkey/monkey
+              ]
             end
 
             it "doesn't link public headers from vendored framework, when frameworks required" do
