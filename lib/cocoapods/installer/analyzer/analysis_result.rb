@@ -28,11 +28,15 @@ module Pod
         #
         attr_reader :targets
 
+        # @return [Array<PodTarget>] The pod targets created for all the aggregate targets.
+        #
+        attr_reader :pod_targets
+
         # @return [PodfileDependencyCache] the cache of all dependencies in the podfile.
         #
         attr_reader :podfile_dependency_cache
 
-        def initialize(podfile_state, specs_by_target, specs_by_source, specifications, sandbox_state, targets,
+        def initialize(podfile_state, specs_by_target, specs_by_source, specifications, sandbox_state, targets, pod_targets,
                        podfile_dependency_cache)
           @podfile_state = podfile_state
           @specs_by_target = specs_by_target
@@ -40,6 +44,7 @@ module Pod
           @specifications = specifications
           @sandbox_state = sandbox_state
           @targets = targets
+          @pod_targets = pod_targets
           @podfile_dependency_cache = podfile_dependency_cache
         end
 
@@ -75,6 +80,19 @@ module Pod
           state = sandbox_state
           needing_install = state.added.length + state.changed.length + state.deleted.length
           needing_install > 0
+        end
+
+        private
+
+        # @return [Array<PodTarget>] The model representations of pod targets
+        #         generated as result of the analyzer.
+        #
+        def calculate_pod_targets(aggregate_targets)
+          aggregate_target_pod_targets = aggregate_targets.flat_map(&:pod_targets)
+          test_dependent_targets = aggregate_target_pod_targets.flat_map do |pod_target|
+            pod_target.test_dependent_targets_by_spec_name.values.flatten
+          end
+          (aggregate_target_pod_targets + test_dependent_targets).uniq
         end
       end
     end
